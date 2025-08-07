@@ -42,5 +42,5 @@ public class Member {
         member.setRole(Role.USER);
         return member;
     }
-
+//git commit 테스트
 }
