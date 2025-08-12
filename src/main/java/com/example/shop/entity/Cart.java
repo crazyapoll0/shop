@@ -9,7 +9,7 @@ import lombok.ToString;
 @Table(name = "cart")
 @Getter @Setter
 @ToString
-public class Cart {
+public class Cart extends BaseEntity{
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)

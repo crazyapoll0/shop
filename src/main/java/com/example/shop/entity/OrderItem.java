@@ -4,11 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Getter @Setter
-public class OrderItem {
+public class OrderItem extends BaseEntity{
 
     @Id @GeneratedValue
     @Column(name = "order_item_id")         // 주문상품 PK
@@ -18,7 +16,7 @@ public class OrderItem {
     @JoinColumn(name = "item_id")           // 주문한 상품
     private Item item;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")          // 이 주문상품이 속한 주문
     private Order order;
 
@@ -26,7 +24,7 @@ public class OrderItem {
 
     private Integer count;                  // 주문 수량
 
-    private LocalDateTime regTime;          // 생성일
+//    private LocalDateTime regTime;          // 생성일
 
-    private LocalDateTime updateTime;       // 수정일
+//    private LocalDateTime updateTime;       // 수정일
 }

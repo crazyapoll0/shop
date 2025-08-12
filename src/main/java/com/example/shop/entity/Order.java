@@ -13,13 +13,13 @@ import java.util.List;
 @Table(name = "orders")
 @Getter @Setter
 
-public class Order {
+public class Order extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "order_id")          // 주문 PK
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")     // 주문한 회원
     private Member member;
 
@@ -30,7 +30,8 @@ public class Order {
      다 : OrderItem
     */
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) //read-only => DB 표현 불가
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, //read-only => DB 표현 불가
+            orphanRemoval = true)
     List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime orderDate;        // 주문일
@@ -38,7 +39,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;        // 주문상태 (e.g. ORDER, CANCEL)
 
-    private LocalDateTime regTime;          // 생성일
-
-    private LocalDateTime updateTime;       // 수정일
+//    private LocalDateTime regTime;          // 생성일
+//
+//    private LocalDateTime updateTime;       // 수정일
 }
