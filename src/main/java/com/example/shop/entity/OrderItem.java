@@ -1,14 +1,16 @@
 package com.example.shop.entity;
 
 import jakarta.persistence.*;
+import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Value;
 
 @Entity
 @Getter @Setter
 public class OrderItem extends BaseEntity{
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_item_id")         // 주문상품 PK
     private Long id;
 

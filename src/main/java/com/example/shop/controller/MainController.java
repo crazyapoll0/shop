@@ -1,6 +1,7 @@
 package com.example.shop.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 //회원가입 후 메인 페이지로 갈 수 있도록하는 소스
@@ -9,7 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
     @GetMapping("/")
-    public String main() {
+    public String main(Model model) {
+
+        String imgSrc = "SquallLeonhartjpg.jpg";
+        model.addAttribute("imgPath", imgSrc);
         return "main";
     }
 }

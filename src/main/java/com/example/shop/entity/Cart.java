@@ -12,7 +12,7 @@ import lombok.ToString;
 public class Cart extends BaseEntity{
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /* member 테이블의 member_id(pk)를 참조하는 cart 테이블의 member_id(FK)

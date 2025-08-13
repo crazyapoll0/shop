@@ -11,7 +11,7 @@ public class ItemImg extends BaseEntity {
 
     @Id
     @Column(name = "item_img_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -23,4 +23,9 @@ public class ItemImg extends BaseEntity {
     private String imgUrl;      //이미지 조회 경로
     private String repImgYn;    //대표 이미지 여부
 
+    public void updateItemImg(String oriImgName, String imgName, String imgUrl) {
+        this.imgName = imgName;
+        this.imgUrl = imgUrl;
+        this.oriImgName = oriImgName;
+    }
 }
