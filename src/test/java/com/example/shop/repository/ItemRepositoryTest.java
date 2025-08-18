@@ -3,6 +3,7 @@ package com.example.shop.repository;
 import com.example.shop.constant.ItemSellStatus;
 import com.example.shop.entity.Item;
 import com.example.shop.entity.QItem;
+import com.example.shop.repository.Item.ItemRepository;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.Wildcard;
 import com.querydsl.jpa.impl.JPAQuery;
@@ -17,17 +18,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.query.JpaQueryCreator;
 import org.springframework.test.context.TestPropertySource;
-import org.thymeleaf.util.StringUtils;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-import static com.example.shop.entity.Item.*;
 import static com.example.shop.entity.QItem.item;
-import static com.querydsl.core.QueryModifiers.offset;
-import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 @TestPropertySource(locations="classpath:application-test.properties")
 class ItemRepositoryTest {

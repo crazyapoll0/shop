@@ -1,15 +1,13 @@
-package com.example.shop.repository;
+package com.example.shop.repository.Item;
 
 import com.example.shop.entity.Item;
-import org.springframework.data.domain.Limit;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ItemRepository extends JpaRepository<Item, Long> {
+public interface ItemRepository extends JpaRepository<Item, Long>, ItemRepositoryCustom {
     List<Item> findByItemNm(String itemNm);
     //SELECT = FROM item WHERE item_num = ?;
 

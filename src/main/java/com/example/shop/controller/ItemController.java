@@ -1,18 +1,23 @@
 package com.example.shop.controller;
 
 import com.example.shop.dto.ItemFormDto;
+import com.example.shop.dto.ItemSearchDto;
+import com.example.shop.entity.Item;
 import com.example.shop.service.ItemService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.naming.Binding;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -82,5 +87,22 @@ public class ItemController {
         }
         return "redirect:/";
     }
+
+    @GetMapping(value = {"/admin/items", "/admin/items/{page}"})
+    public String itemMenage(ItemSearchDto itemSearchDto, @PathVariable Optional<Integer> page,
+                             Model model) {
+        //1. 조회하고자 하는 페이지의 정보를 담은 pageable을 생성
+        //페이지 오프셋 ==> /admin/items/3 요청 ==> 3번 페이지 조회
+        //==> /admin/items 요청 ==> 0번 페이지 조회
+        Pageable pageable = PageRequest.of(page.orElse(0),4);
+        Page<Item> items = itemService.getAdminItemPage(itemSearchDto, pageable);
+
+        //필요한 데이터를 Model에 담아서 뷰 이름 반환
+        model.addAttribute("items", items);
+        model.addAttribute("itemSearchDto", itemSearchDto);
+        model.addAttribute("maxPage", 5);
+        return "item/itemMng";
+    }
+
 }
 

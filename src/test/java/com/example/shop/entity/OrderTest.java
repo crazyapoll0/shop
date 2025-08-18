@@ -1,7 +1,7 @@
 package com.example.shop.entity;
 
 import com.example.shop.constant.ItemSellStatus;
-import com.example.shop.repository.ItemRepository;
+import com.example.shop.repository.Item.ItemRepository;
 import com.example.shop.repository.MemberRepository;
 import com.example.shop.repository.OrderItemRepository;
 import com.example.shop.repository.OrderRepository;
