@@ -1,10 +1,14 @@
 package com.example.shop.entity;
 
-import com.example.shop.constant.ItemSellStatus;
-import com.example.shop.repository.Item.ItemRepository;
-import com.example.shop.repository.MemberRepository;
-import com.example.shop.repository.OrderItemRepository;
-import com.example.shop.repository.OrderRepository;
+import com.shop.constant.ItemSellStatus;
+import com.shop.entity.Item;
+import com.shop.entity.Member;
+import com.shop.entity.Order;
+import com.shop.entity.OrderItem;
+import com.shop.repository.Item.ItemRepository;
+import com.shop.repository.MemberRepository;
+import com.shop.repository.OrderItemRepository;
+import com.shop.repository.order.OrderRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.PersistenceContext;

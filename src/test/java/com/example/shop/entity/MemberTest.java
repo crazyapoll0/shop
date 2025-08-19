@@ -1,6 +1,7 @@
 package com.example.shop.entity;
 
-import com.example.shop.repository.MemberRepository;
+import com.shop.entity.Member;
+import com.shop.repository.MemberRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.PersistenceContext;

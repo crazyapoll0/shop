@@ -1,8 +1,9 @@
 package com.example.shop.repository;
 
-import com.example.shop.dto.MemberFormDto;
-import com.example.shop.entity.Member;
-import com.example.shop.service.MemberService;
+
+import com.shop.dto.MemberFormDto;
+import com.shop.entity.Member;
+import com.shop.service.MemberService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

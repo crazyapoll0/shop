@@ -1,9 +1,9 @@
 package com.example.shop.repository;
 
-import com.example.shop.constant.ItemSellStatus;
-import com.example.shop.entity.Item;
 import com.example.shop.entity.QItem;
-import com.example.shop.repository.Item.ItemRepository;
+import com.shop.constant.ItemSellStatus;
+import com.shop.entity.Item;
+import com.shop.repository.Item.ItemRepository;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.Wildcard;
 import com.querydsl.jpa.impl.JPAQuery;
