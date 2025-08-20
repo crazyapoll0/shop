@@ -62,4 +62,11 @@ public class Order extends BaseEntity {
         }
         return totalPrice;
     }
+
+    public void cancelOrder() {
+        for (OrderItem orderItem: orderItems) {
+            orderItem.cancel();
+        }
+        this.orderStatus = OrderStatus.CANCEL;
+    }
 }

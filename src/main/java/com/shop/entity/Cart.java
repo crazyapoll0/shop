@@ -20,7 +20,12 @@ public class Cart extends BaseEntity{
     @OneToOne               //(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id", unique = true)
     private Member member;
-
     //private Long member_id ==> 이렇게 표현x
+
+    public static Cart createcart(Member member) {
+        Cart cart = new Cart();
+        cart.setMember(member);
+        return cart;
+    }
 
 }

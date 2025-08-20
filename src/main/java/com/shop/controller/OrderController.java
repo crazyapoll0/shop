@@ -66,4 +66,14 @@ public class OrderController {
         model.addAttribute("maxPage", 5);
         return "order/orderHist";
     }
+
+    @PostMapping("/order/{orderId}/cancel")
+    public ResponseEntity<?> cancelOrder(@PathVariable Long orderId,
+                                         Authentication authentication) {
+        if(!orderService.validateOrder(orderId, authentication.getName())) {
+            return new ResponseEntity<String>("주문 취소 권한이 없습니다.", HttpStatus.FORBIDDEN);
+        }
+        orderService.cancelOrder(orderId);
+        return ResponseEntity.ok().body(orderId);
+    }
 }
